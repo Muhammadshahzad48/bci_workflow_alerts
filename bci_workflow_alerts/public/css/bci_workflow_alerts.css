@@ -1,0 +1,301 @@
+#bci-workflow-alert-container {
+	position: fixed;
+	/* Just below Desk action toolbars, without covering their buttons. */
+	top: 215px;
+	right: 28px;
+	width: min(390px, calc(100vw - 56px));
+	max-height: calc(100vh - 240px);
+	overflow-y: auto;
+	/* Stay above form toolbars, dropdowns and action controls. */
+	z-index: 10000;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	pointer-events: auto;
+}
+
+.bci-workflow-alert-card {
+	background: #f7fdfa;
+	backdrop-filter: none;
+	border: 1px solid rgba(25, 169, 104, 0.76);
+	border-radius: 12px;
+	box-shadow: 0 12px 30px rgba(15, 43, 77, 0.22);
+	padding: 15px 16px;
+	animation: bci-workflow-alert-in 180ms ease-out, bci-workflow-alert-attention 900ms ease-in-out 3 180ms;
+}
+
+.bci-workflow-clear-popups {
+	position: sticky;
+	bottom: 0;
+	align-self: flex-end;
+	margin: 0 2px 2px auto;
+	box-shadow: 0 2px 8px rgba(15, 43, 77, 0.2);
+}
+
+.bci-workflow-alert-card:hover {
+	animation: bci-workflow-alert-hover 250ms ease-in-out 2;
+}
+
+.bci-workflow-alert-refresh {
+	animation: bci-workflow-alert-attention 900ms ease-in-out 3;
+}
+
+.bci-workflow-alert-slide-out {
+	animation: bci-workflow-alert-slide-out 220ms ease-in forwards !important;
+}
+
+.bci-workflow-focus-target {
+	position: relative;
+	z-index: 2;
+	animation: bci-workflow-focus-target 700ms ease-in-out 5;
+}
+
+.bci-workflow-focus-pointer {
+	position: absolute;
+	left: -30px;
+	top: 50%;
+	font-size: 22px;
+	line-height: 1;
+	transform: translateY(-50%);
+	animation: bci-workflow-focus-pointer 700ms ease-in-out 5;
+	pointer-events: none;
+}
+
+.dropdown-notifications.bci-workflow-has-pending .notifications-seen {
+	display: none !important;
+}
+
+.dropdown-notifications.bci-workflow-has-pending .notifications-unseen {
+	display: inline-flex !important;
+	animation: bci-workflow-bell-ring 1.1s ease-in-out infinite;
+	transform-origin: top center;
+}
+
+.dropdown-notifications.bci-workflow-has-pending .notifications-icon {
+	position: relative;
+}
+
+.dropdown-notifications.bci-workflow-has-pending .notifications-icon::after,
+
+.bci-workflow-inline-badge {
+	content: attr(data-bci-pending-count);
+	display: inline-grid;
+	min-width: 16px;
+	height: 16px;
+	padding: 0 3px;
+	place-items: center;
+	margin-left: 4px;
+	border-radius: 50%;
+	background: #dc2626;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 1;
+	box-shadow: 0 0 0 2px #fff;
+}
+
+.bci-workflow-module-badge {
+	display: inline-grid;
+	min-width: 16px;
+	height: 16px;
+	padding: 0 3px;
+	place-items: center;
+	margin-left: auto;
+	position: relative;
+	top: 0;
+	align-self: center;
+	vertical-align: middle;
+	border-radius: 50%;
+	background: #dc2626;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 1;
+	box-shadow: 0 0 0 2px #fff;
+}
+
+.dropdown-notifications.bci-workflow-has-pending .notifications-icon::after {
+	position: absolute;
+	top: -5px;
+	right: -7px;
+	margin: 0;
+}
+
+.bci-workflow-pending-link {
+	display: inline-flex !important;
+	width: auto !important;
+	align-items: center;
+	justify-content: flex-start !important;
+	gap: 0 !important;
+	background: #fff1f2 !important;
+	border-radius: 5px;
+	box-shadow: inset 0 0 0 1px rgba(220, 38, 38, 0.14);
+}
+
+.bci-workflow-inline-badge {
+	flex: 0 0 auto;
+	position: static;
+	align-self: center;
+	margin-left: 4px;
+	vertical-align: middle;
+}
+
+.bci-workflow-record-badge {
+	display: inline-grid;
+	min-width: 16px;
+	height: 16px;
+	padding: 0 3px;
+	place-items: center;
+	margin-left: 4px;
+	margin-right: 4px;
+	border-radius: 50%;
+	background: #dc2626;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 1;
+	vertical-align: middle;
+	box-shadow: 0 0 0 2px #fff;
+}
+
+#bci-workflow-pending-list {
+	border-bottom: 1px solid var(--border-color);
+	background: #fff7ed;
+	padding: 8px;
+}
+
+.bci-workflow-alert-tab {
+	border: 0;
+	border-bottom: 2px solid #15975d;
+	padding: 8px 10px;
+	background: #f0fdf4;
+	color: #137447;
+	font-size: 12px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.bci-workflow-alert-tab-flash {
+	animation: bci-workflow-alert-tab-flash 700ms ease-in-out 2;
+}
+
+.bci-workflow-pending-heading {
+	margin: 0 4px 5px;
+	color: #92400e;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.bci-workflow-pending-doctype {
+	border-top: 1px solid rgba(146, 64, 14, 0.16);
+	padding-top: 5px;
+	margin-top: 5px;
+}
+
+.bci-workflow-pending-doctype-heading {
+	padding: 2px 8px;
+	color: #7c3c0c;
+	font-size: 11px;
+	font-weight: 700;
+}
+
+.bci-workflow-pending-item {
+	display: block;
+	width: 100%;
+	border: 0;
+	border-radius: 5px;
+	padding: 7px 8px;
+	background: transparent;
+	color: var(--text-color);
+	font-size: 12px;
+	font-weight: 600;
+	text-align: left;
+	white-space: normal;
+}
+
+.bci-workflow-pending-item:hover {
+	background: #ffedd5;
+}
+
+.bci-workflow-alert-title {
+	color: #15975d;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.bci-workflow-alert-subject {
+	margin-top: 5px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #102f55;
+}
+
+.bci-workflow-alert-message {
+	margin-top: 7px;
+	max-height: 96px;
+	overflow: auto;
+	white-space: pre-wrap;
+	color: #254465;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.bci-workflow-alert-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 11px;
+}
+
+@keyframes bci-workflow-alert-in {
+	from { opacity: 0; transform: translateY(-8px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bci-workflow-alert-attention {
+	0%, 100% { box-shadow: 0 12px 30px rgba(15, 43, 77, 0.22); }
+	50% { box-shadow: 0 0 0 5px rgba(25, 169, 104, 0.2), 0 14px 34px rgba(15, 43, 77, 0.26); }
+}
+
+@keyframes bci-workflow-alert-hover {
+	0%, 100% { transform: translateX(0); }
+	25% { transform: translateX(-3px); }
+	75% { transform: translateX(3px); }
+}
+
+@keyframes bci-workflow-alert-slide-out {
+	to { opacity: 0; transform: translateX(115%); max-height: 0; margin: 0; padding-top: 0; padding-bottom: 0; }
+}
+
+@keyframes bci-workflow-focus-target {
+	0%, 100% { transform: scale(1); background: #fff1f2; }
+	50% { transform: scale(1.08); background: #fecaca; box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.22); }
+}
+
+@keyframes bci-workflow-focus-pointer {
+	0%, 100% { opacity: 0.15; transform: translate(-10px, -50%) scale(0.9); }
+	50% { opacity: 1; transform: translate(4px, -50%) scale(1.2); }
+}
+
+@keyframes bci-workflow-bell-ring {
+	0%, 100% { transform: rotate(0); }
+	20% { transform: rotate(12deg); }
+	40% { transform: rotate(-12deg); }
+	60% { transform: rotate(8deg); }
+	80% { transform: rotate(-8deg); }
+}
+
+@keyframes bci-workflow-alert-tab-flash {
+	50% { background: #bbf7d0; }
+}
+
+@media (max-width: 768px) {
+	#bci-workflow-alert-container {
+		top: 170px;
+		right: 12px;
+		width: calc(100vw - 24px);
+		max-height: calc(100vh - 190px);
+	}
+}

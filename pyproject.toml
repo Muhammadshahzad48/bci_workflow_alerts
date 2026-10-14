@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bci_workflow_alerts"
+version = "0.1.0"
+description = "BCI Customer RFQ visual and sound alerts for Frappe Desk"
+requires-python = ">=3.10"
+authors = [{name = "BCI ERP"}]
+license = {text = "MIT"}
+
+[tool.bench.frappe-dependencies]
+frappe = ">=15.0.0,<16.0.0"

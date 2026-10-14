@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-13 15:10:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "intro",
+  "recipients"
+ ],
+ "fields": [
+  {
+   "fieldname": "intro",
+   "fieldtype": "HTML",
+   "label": "How it works",
+   "options": "<p>Each row sends the selected alert type directly to the selected ERP User. Add or remove rows to change recipients. Changes apply to new alerts immediately.</p>"
+  },
+  {
+   "fieldname": "recipients",
+   "fieldtype": "Table",
+   "label": "Direct Alert Recipients",
+   "options": "BCI Workflow Alert Recipient",
+   "reqd": 0
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-10-13 15:10:00.000000",
+ "modified_by": "Administrator",
+ "module": "BCI Workflow Alerts",
+ "name": "BCI Workflow Alert Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

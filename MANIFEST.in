@@ -1,0 +1,1 @@
+recursive-include bci_workflow_alerts *.js *.css *.py *.txt

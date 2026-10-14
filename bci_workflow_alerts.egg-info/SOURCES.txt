@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+pyproject.toml
+bci_workflow_alerts/__init__.py
+bci_workflow_alerts/hooks.py
+bci_workflow_alerts/modules.txt
+bci_workflow_alerts.egg-info/PKG-INFO
+bci_workflow_alerts.egg-info/SOURCES.txt
+bci_workflow_alerts.egg-info/dependency_links.txt
+bci_workflow_alerts.egg-info/top_level.txt
+bci_workflow_alerts/config/__init__.py
+bci_workflow_alerts/config/desktop.py
+bci_workflow_alerts/public/css/bci_workflow_alerts.css
+bci_workflow_alerts/public/js/bci_workflow_alerts.js
