@@ -725,6 +725,7 @@ def seed_requested_workflow_recipients():
 		"Full and Final Settlement": HR_REQUEST_USERS,
 		"Employee Custody": HR_REQUEST_USERS,
 		"Purchase Request": PROCUREMENT_USERS,
+		"Purchase Order Cancellation Request": PROCUREMENT_USERS,
 		"Expense Sheet": PROCUREMENT_USERS,
 		"Transportation Cost Exception": MUHED_USERS,
 		"Customer Aging Limit Pass": MUHED_USERS,

@@ -48,6 +48,9 @@ doc_events = {
 	"Purchase Order": {
 		"on_update": "bci_workflow_alerts.events.notify_purchase_order_state",
 	},
+	"Purchase Order Cancellation Request": {
+		"after_insert": "bci_workflow_alerts.events.notify_procurement_request",
+	},
 	"Purchase Receipt": {
 		"after_insert": "bci_workflow_alerts.events.notify_purchase_receipt",
 	},

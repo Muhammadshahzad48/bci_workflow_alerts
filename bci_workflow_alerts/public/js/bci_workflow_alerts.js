@@ -18,6 +18,10 @@
 		"Customer RFQ": { module: "selling", route: "customer-rfq" },
 		"Material Request": { module: "stock", route: "material-request" },
 		"Purchase Order": { module: "buying", route: "purchase-order" },
+		"Purchase Order Cancellation Request": {
+			module: "buying",
+			route: "purchase-order-cancellation-request",
+		},
 		"Purchase Receipt": { module: "stock", route: "purchase-receipt" },
 		"Sales Order": { module: "selling", route: "sales-order" },
 		"Material Transfer Request": { module: "stock", route: "material-transfer-request" },
