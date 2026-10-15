@@ -60,16 +60,28 @@ doc_events = {
 	"Leave Application": {
 		"after_insert": "bci_workflow_alerts.events.notify_hr_request",
 	},
+	"Leave Request": {
+		"after_insert": "bci_workflow_alerts.events.notify_hr_request",
+	},
+	"Leave Requests": {
+		"after_insert": "bci_workflow_alerts.events.notify_hr_request",
+	},
 	"Request For Advance": {
 		"after_insert": "bci_workflow_alerts.events.notify_hr_request",
 	},
 	"Vacation Salary Request": {
 		"after_insert": "bci_workflow_alerts.events.notify_hr_request",
 	},
+	"Salary Increment Request": {
+		"after_insert": "bci_workflow_alerts.events.notify_hr_request",
+	},
 	"Employee Incentive": {
 		"after_insert": "bci_workflow_alerts.events.notify_hr_request",
 	},
 	"Full and Final Statement": {
+		"after_insert": "bci_workflow_alerts.events.notify_hr_request",
+	},
+	"Full and Final Settlement": {
 		"after_insert": "bci_workflow_alerts.events.notify_hr_request",
 	},
 	"Employee Custody": {

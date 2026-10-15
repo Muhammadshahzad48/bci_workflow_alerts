@@ -43,10 +43,14 @@
 		"Request For Job Applicant": { module: "transport", route: "request-for-job-applicant" },
 		"Job Applicant": { module: "hr", route: "job-applicant" },
 		"Leave Application": { module: "hr", route: "leave-application" },
+		"Leave Request": { module: "hr", route: "leave-request" },
+		"Leave Requests": { module: "hr", route: "leave-requests" },
 		"Request For Advance": { module: "hr", route: "request-for-advance" },
 		"Vacation Salary Request": { module: "hr", route: "vacation-salary-request" },
+		"Salary Increment Request": { module: "hr", route: "salary-increment-request" },
 		"Employee Incentive": { module: "payroll", route: "employee-incentive" },
 		"Full and Final Statement": { module: "hr", route: "full-and-final-statement" },
+		"Full and Final Settlement": { module: "hr", route: "full-and-final-settlement" },
 		"Employee Custody": { module: "hr", route: "employee-custody" },
 		"Staff Notes": { module: "apc", route: "staff-notes" },
 		"Instruction From Sales Management To Staff": {
@@ -277,10 +281,10 @@
 		title.textContent = reminder
 			? is_customer_rfq(log)
 				? "Customer RFQ — reminder: action required"
-				: "BCI ERP — reminder: action required"
+				: "APC ERP — reminder: action required"
 			: is_customer_rfq(log)
 				? "Customer RFQ — action required"
-				: "BCI ERP — notification";
+				: "APC ERP — notification";
 
 		const subject = document.createElement("div");
 		subject.className = "bci-workflow-alert-subject";
