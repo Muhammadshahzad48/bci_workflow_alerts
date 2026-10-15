@@ -5,8 +5,8 @@ app_description = "Visual and sound alerts for Customer RFQ workflow notificatio
 app_email = "info@bcisaudi.com"
 app_license = "MIT"
 
-app_include_js = "/assets/bci_workflow_alerts/js/bci_workflow_alerts.js?v=20261014.16"
-app_include_css = "/assets/bci_workflow_alerts/css/bci_workflow_alerts.css?v=20261014.16"
+app_include_js = "/assets/bci_workflow_alerts/js/bci_workflow_alerts.js?v=20261015.1"
+app_include_css = "/assets/bci_workflow_alerts/css/bci_workflow_alerts.css?v=20261015.1"
 
 after_migrate = "bci_workflow_alerts.events.provision_workflow_recipient_fields"
 after_install = "bci_workflow_alerts.events.provision_workflow_recipient_fields"
