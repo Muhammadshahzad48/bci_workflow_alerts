@@ -110,23 +110,28 @@
 
 	function play_alarm() {
 		const context = get_audio_context();
+
 		if (context && context.state === "running") {
 			const start = context.currentTime;
-			// A distinct five-second messaging-style chime. Browser and device
-			// settings remain the final authority for output volume and silence.
-			Array.from({ length: 12 }, (_, index) => index * 0.4).forEach((offset, index) => {
+			const notes = [523, 659, 784, 1046];
+
+			notes.forEach((frequency, index) => {
 				const oscillator = context.createOscillator();
 				const gain = context.createGain();
-				const at = start + offset;
-				oscillator.type = "sine";
-				oscillator.frequency.setValueAtTime(index % 3 === 2 ? 1318 : 1046, at);
+				const at = start + index * 0.24;
+
+				oscillator.type = "triangle";
+				oscillator.frequency.setValueAtTime(frequency, at);
+
 				gain.gain.setValueAtTime(0.001, at);
-				gain.gain.exponentialRampToValueAtTime(0.72, at + 0.025);
-				gain.gain.exponentialRampToValueAtTime(0.001, at + 0.27);
+				gain.gain.exponentialRampToValueAtTime(0.38, at + 0.025);
+				gain.gain.exponentialRampToValueAtTime(0.001, at + 0.34);
+
 				oscillator.connect(gain).connect(context.destination);
 				oscillator.start(at);
-				oscillator.stop(at + 0.3);
+				oscillator.stop(at + 0.37);
 			});
+
 			return;
 		}
 
@@ -135,7 +140,7 @@
 			audio.volume = 1;
 			audio.play().catch(() => {});
 		} catch (error) {
-			// Visual reminders continue when audio is unavailable.
+			// Visual notification continues if browser audio is unavailable.
 		}
 	}
 
@@ -280,11 +285,11 @@
 		title.className = "bci-workflow-alert-title";
 		title.textContent = reminder
 			? is_customer_rfq(log)
-				? "Customer RFQ — reminder: action required"
-				: "APC ERP — reminder: action required"
+				? "Customer RFQ — reminder"
+				: "AR Pioneer ERP — reminder"
 			: is_customer_rfq(log)
-				? "Customer RFQ — action required"
-				: "APC ERP — notification";
+				? "Customer RFQ — notification"
+				: "AR Pioneer ERP — notification";
 
 		const subject = document.createElement("div");
 		subject.className = "bci-workflow-alert-subject";
@@ -359,7 +364,7 @@
 		section.id = "bci-workflow-pending-list";
 		const heading = document.createElement("div");
 		heading.className = "bci-workflow-pending-heading";
-		heading.textContent = `BCI alerts requiring action (${alerts.length})`;
+		heading.textContent = `AR Pioneer alerts requiring action (${alerts.length})`;
 		section.append(heading);
 		const byDoctype = new Map();
 		alerts.forEach((log) => {
@@ -417,7 +422,7 @@
 		const tab = document.createElement("li");
 		tab.id = "bci-workflow-alert-tab";
 		tab.className = "notifications-category bci-workflow-alert-tab";
-		tab.textContent = `BCI Alerts (${count})`;
+		tab.textContent = `AR Pioneer Alerts (${count})`;
 		const showBciAlerts = (event) => {
 			event.preventDefault();
 			event.stopImmediatePropagation();
